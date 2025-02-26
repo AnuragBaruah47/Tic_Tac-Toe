@@ -1,0 +1,137 @@
+*{
+    margin:0px;
+    padding: 0px;
+}
+body{
+    background-color: #000000 ;
+}
+.mainbox{
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    display: grid;
+    grid-template-rows: 200px 200px 200px 200px;
+    grid-template-columns: 200px 200px 200px;
+}
+
+.items{
+    color: #7fff00;
+    height: 200px;
+    width: 200px;
+}
+.items-1{
+    text-align: center;
+    animation: form 1.5s 1 ease-in ;
+    border: 2px solid #7fff00;
+}
+.items-2{
+    animation: form 1.5s 1 ease-in ;
+    border: 2px solid #7fff00;
+}
+.items-3{
+    animation: form 1.5s 1 ease-in ;
+    border: 2px solid #7fff00;
+}
+.items-4{
+    animation: form 1.5s 1 ease-in ;
+    border: 2px solid #7fff00;
+}
+.items-5{
+    animation: form 1.5s 1 ease-in ;
+    border: 2px solid #7fff00;
+}
+.items-6{
+    animation: form 1.5s 1 ease-in ;
+    border: 2px solid #7fff00;
+}
+.items-7{
+    animation: form 1.5s 1 ease-in ;
+    border: 2px solid #7fff00;
+}
+.items-8{
+    animation: form 1.5s 1 ease-in ;
+    border: 2px solid #7fff00;
+}
+.items-9{
+    animation: form 1.5s 1 ease-in ;
+    border: 2px solid #7fff00;
+}
+.items-10{
+    position: relative;
+
+}
+.items-11{
+    position: relative;
+
+}
+.items-12{
+    position: relative;
+
+}
+@keyframes form {
+    0%{
+        height: 0px;
+        width: 0px;
+    }
+    100%{
+        height: 200px;
+        width: 200px;
+    }
+}
+.heading{
+    margin-top: 20px;
+    color: #7fff00;
+    text-align: center;
+    font-size: 40px;
+}
+.headingcontainer{
+    height: 80px;
+    width: 100vw;
+}
+@keyframes buton {
+    0%{
+        height: 0px;
+        width: 0px;
+        opacity: 0%;
+    }
+    100%{
+        height: 100px;
+        width: 100px;
+        opacity: 100%;
+    }
+}
+.start,.end,.restart{
+    border: 0px;
+    animation: buton 2s 1 ease-in;
+    background-color: #7fff00;
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+}
+.start{
+    position: absolute;
+    left: 50px;
+    top: 50px;
+}
+.end{
+    position: absolute;
+    left: 50px;
+    top: 50px;
+}
+
+.restart{
+    left: 50px;
+    top: 50px;
+    position: absolute;
+}
+
+.restart::after{
+    background-color: rgb(252, 0, 0);
+}
+.start::after{
+    background-color: rgb(252, 0, 0);
+}
+.end::after{
+    background-color: rgb(252, 0, 0);
+}
+
