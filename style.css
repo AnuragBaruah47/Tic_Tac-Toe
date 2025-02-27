@@ -8,6 +8,33 @@ body{
     font: 1em sans-serif;
     background-color: #000000 ;
 }
+.container1{
+    position: relative;
+}
+.line{
+    height: 600px;
+    width: 5px;
+    background-color: #ffffff ;
+    position: absolute;
+}
+@media(min-width:1922px){
+    .line{
+        height: 0px;
+        width: 0px;
+    }
+   }
+@media(max-width:1921px){
+    .line{
+        height: 600px;
+        width: 5px;
+    }
+   }
+@media(max-width:1919px){
+    .line{
+       height: 0px;
+       width: 0px;
+    }
+   }
 .mainbox{
     position: relative;
     align-items: center;
@@ -18,13 +45,6 @@ body{
     grid-template-columns: 200px 200px 200px;
 }
 
-.live{
-    font-size: 30px;
-    top: 50vh;
-    left: 50vh;
-    color: #7fff00;
-    position: absolute;
-}
 .items{
     color: #7fff00;
     height: 200px;
