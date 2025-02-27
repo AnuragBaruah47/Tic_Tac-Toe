@@ -192,6 +192,28 @@ body{
     }
 }
 @media(max-width:473px){
+    @keyframes form {
+        0%{
+            height: 0px;
+            width: 0px;
+        }
+        100%{
+            height: 125px;
+            width: 125px;
+        }
+    }
+    @keyframes buton {
+        0%{
+            height: 0px;
+            width: 0px;
+            opacity: 0%;
+        }
+        100%{
+            height: 60px;
+            width: 60px;
+            opacity: 100%;
+        }
+    }
     .mainbox{
         grid-template-rows: 125px 125px 125px 125px;
         grid-template-columns: 125px 125px 125px;
@@ -202,7 +224,6 @@ body{
         font-size: 125px;
     }
     .start,.reset,.surrender{
-        animation: none;
         left: 36px;
         top: 40px;
         height: 60px;
@@ -217,8 +238,8 @@ body{
             width: 0px;
         }
         100%{
-            height: 150px;
-            width: 150px;
+            height: 100px;
+            width: 100px;
         }
     }
     @keyframes buton {
@@ -228,8 +249,8 @@ body{
             opacity: 0%;
         }
         100%{
-            height: 75px;
-            width: 75px;
+            height: 50px;
+            width: 50px;
             opacity: 100%;
         }
     }
@@ -251,6 +272,28 @@ body{
     
 }
 @media(max-width:309px){
+    @keyframes form {
+        0%{
+            height: 0px;
+            width: 0px;
+        }
+        100%{
+            height: 75px;
+            width: 75px;
+        }
+    }
+    @keyframes buton {
+        0%{
+            height: 0px;
+            width: 0px;
+            opacity: 0%;
+        }
+        100%{
+            height: 40px;
+            width: 40px;
+            opacity: 100%;
+        }
+    }
     .mainbox{
         grid-template-rows: 75px 75px 75px 75px;
         grid-template-columns: 75px 75px 75px;
@@ -261,7 +304,6 @@ body{
         font-size: 75px;
     }
     .start,.reset,.surrender{
-        animation: none;
         left: 20px;
         top: 69px;
         height: 40px;
