@@ -3,6 +3,9 @@
     margin:0px;
     padding: 0px;
 }
+html{
+    overflow-x:hidden;
+}
 
 body{
     font: 1em sans-serif;
@@ -41,7 +44,7 @@ body{
     justify-content: center;
     border: 2px solid black;
     display: grid;
-    grid-template-rows: 200px 200px 200px 200px;
+    grid-template-rows: 200px 200px 200px;
     grid-template-columns: 200px 200px 200px;
 }
 
