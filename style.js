@@ -2,16 +2,15 @@ const items = document.querySelectorAll(".items");
 const startButton = document.querySelector(".start");
 const resetButton = document.querySelector(".reset");
 const musicOffButton = document.querySelector(".surrender");
-const mainBox = document.querySelector(".mainbox");
 const live = document.querySelector(".heading");
+
 const playerXaudio = new Audio("thoing.wav");
 const playerOaudio = new Audio("thung.wav");
 const beforeStartMusic = new Audio("main.mp3");
 const playerXWinsAudio = new Audio("playerX.mp3");
 const playerOWinsAudio = new Audio("playerO.mp3");
-const drawAudio = new Audio("draw.mp3"); // Added audio for draw condition
-const line=document.querySelector(".line")
-line.style.height="0px"
+const drawAudio = new Audio("draw.mp3");
+
 const winPattern = [
   [0, 1, 2],
   [0, 3, 6],
@@ -25,6 +24,7 @@ const winPattern = [
 
 let player = false;
 
+// Start Button
 startButton.addEventListener("click", () => {
   beforeStartMusic.play();
   player = true;
@@ -51,6 +51,7 @@ startButton.addEventListener("click", () => {
       checkWinner();
     });
 
+    // Small start button glow animation
     setTimeout(() => {
       startButton.style.backgroundColor = "#7fff00";
     }, 100);
@@ -58,62 +59,31 @@ startButton.addEventListener("click", () => {
   });
 });
 
+// Winner & Draw Check
 const checkWinner = () => {
   let isDraw = true;
 
   for (const pattern of winPattern) {
-    let position1Val = items[pattern[0]].innerHTML;
-    let position2Val = items[pattern[1]].innerHTML;
-    let position3Val = items[pattern[2]].innerHTML;
-    if (position1Val !== "" && position2Val !== "" && position3Val !== "") {
-      if (position1Val === position2Val && position2Val === position3Val) {
-        if(pattern[0]===0 && pattern[1]===3 && pattern[2]===6){
-          line.style.transform="translate(758px)"
-          line.style.height="600px"
-        }
-        if(pattern[0]===0 && pattern[1]===1 && pattern[2]===2){
-          line.style.transform="translate(964px) translateY(-190px) rotate(90deg)"
-          line.style.height="600px"
-        }
-        if(pattern[0]===0 && pattern[1]===4 && pattern[2]===8){
-          line.style.transform="translate(974px) translateY(13px) rotate(134deg)"
-          line.style.height="600px"
-        }
-        if(pattern[0]===1 && pattern[1]===4 && pattern[2]===7){
-          line.style.transform="translate(959px)"
-          line.style.height="600px"
-        }
-        if(pattern[0]===2 && pattern[1]===5 && pattern[2]===8){
-            line.style.transform="translate(1160px)"
-          line.style.height="600px"
-        }
-        if(pattern[0]===2 && pattern[1]===4 && pattern[2]===6){
-          line.style.transform="translate(964px) translateY(0px) rotate(225deg)"
-          line.style.height="600px"
-        }
-        if(pattern[0]===3 && pattern[1]===4 && pattern[2]===5){
-         line.style.transform = "translate(964px) translateY(12px) rotate(90deg)"
-          line.style.height="600px"
-        }
-        if(pattern[0]===6 && pattern[1]===7 && pattern[2]===8){
-           line.style.transform = "translate(964px) translateY(213px) rotate(90deg)"
-          line.style.height="600px"
-        }
-        items.forEach((value) => {
-          value.style.pointerEvents = "none";
-        });
+    let [a, b, c] = pattern;
+    let val1 = items[a].innerHTML;
+    let val2 = items[b].innerHTML;
+    let val3 = items[c].innerHTML;
 
-        if (position1Val === "X") {
-          live.innerHTML = "PLAYER X WINS";
-          playerXWinsAudio.play();
-        } else if (position1Val === "O") {
-          live.innerHTML = "PLAYER O WINS";
-          playerOWinsAudio.play();
-        }
-        return;
+    if (val1 && val1 === val2 && val2 === val3) {
+      items.forEach((box) => (box.style.pointerEvents = "none"));
+
+      if (val1 === "X") {
+        live.innerHTML = "PLAYER X WINS 🎉";
+        playerXWinsAudio.play();
+      } else {
+        live.innerHTML = "PLAYER O WINS 🎉";
+        playerOWinsAudio.play();
       }
+      return;
     }
   }
+
+  // Check for draw
   items.forEach((item) => {
     if (item.innerHTML === "") {
       isDraw = false;
@@ -121,20 +91,20 @@ const checkWinner = () => {
   });
 
   if (isDraw) {
-    live.innerHTML = "IT'S A DRAW!";
+    live.innerHTML = "IT'S A DRAW 🤝";
     drawAudio.play();
   }
 };
 
+// Reset Button
 resetButton.addEventListener("click", () => {
-  line.style.height="0px"
   items.forEach((value) => {
     value.textContent = "";
     value.style.pointerEvents = "initial";
   });
   player = true;
   beforeStartMusic.play();
-  live.innerHTML = "PLAYER X TURN"; // Reset message
+  live.innerHTML = "PLAYER X TURN";
 
   setTimeout(() => {
     resetButton.style.backgroundColor = "#7fff00";
@@ -142,10 +112,11 @@ resetButton.addEventListener("click", () => {
   resetButton.style.backgroundColor = "#FF3131";
 });
 
-musicOffButton.addEventListener("click",()=>{
+// Music Toggle Button
+musicOffButton.addEventListener("click", () => {
   beforeStartMusic.pause();
   setTimeout(() => {
     musicOffButton.style.backgroundColor = "#7fff00";
   }, 100);
   musicOffButton.style.backgroundColor = "#FF3131";
-})
+});
